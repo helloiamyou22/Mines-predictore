@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Subscription - Mines Predictor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b0c10;
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+    .container {
+      background: #1f2833;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px #45a29e;
+    }
+    h1 {
+      color: #66fcf1;
+    }
+    p {
+      font-size: 18px;
+    }
+    .details {
+      background: #0b0c10;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 20px 0;
+      border: 1px solid #45a29e;
+      text-align: left;
+      position: relative;
+      user-select: none;
+    }
+    .details strong {
+      color: #66fcf1;
+    }
+    .copy-btn {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #45a29e;
+      border: none;
+      color: #0b0c10;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .copy-btn:hover {
+      background: #66fcf1;
+    }
+    button {
+      background: #45a29e;
+      color: #0b0c10;
+      padding: 12px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover {
+      background: #66fcf1;
+    }
+  </style>
+</head>
+<body>
+  Please note, subscribed users will gain access to the bot within 24hours.
+
+  <div class="container">
+    <h1>Subscribe Now</h1>
+    <p>Pay <strong>$5</strong> for 1 month access to the Mines Predictor Bot.</p>
+
+    <div class="details" style="position: relative;">
+      <h3>📱 MTN MoMo</h3>
+      <p><strong>Name:</strong> Patricia Asiedu</p>
+      <p>
+        <strong>Number:</strong> <span id="momo-number">0534494604</span>
+        <button class="copy-btn" onclick="copyText('momo-number')">Copy</button>
+      </p>
+      <p><strong>Network:</strong> MTN</p>
+    </div>
+
+    <div class="details" style="position: relative;">
+      <h3>₿ Bitcoin (BTC)</h3>
+      <p>
+        <strong>Address:</strong> <span id="btc-address">bc1qpsg0macrxxnvl5cd4t2nqp2yt95a0jem6s2242</span>
+        <button class="copy-btn" onclick="copyText('btc-address')">Copy</button>
+      </p>
+    </div>
+
+    <div class="details" style="position: relative;">
+      <h3>💵 USDT (TRC20)</h3>
+      <p>
+        <strong>Address:</strong> <span id="usdt-address">0x43ac865458540f19ff86f2fc985269d4493dcf3a</span>
+        <button class="copy-btn" onclick="copyText('usdt-address')">Copy</button>
+      </p>
+    </div>
+
+    <p>After payment, click the button below to send us your proof on WhatsApp.</p>
+
+    <button onclick="sendProof()">Send Payment Proof</button>
+  </div>
+
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied: " + text);
+      }, () => {
+        alert("Failed to copy, please copy manually.");
+      });
+    }
+
+    function sendProof() {
+      let message = encodeURIComponent("Hello, I’ve made my payment for the Mines Predictor subscription. Here’s my proof:");
+      window.open(`https://wa.me/233534494604?text=${message}`, "_blank");
+    }
+  </script>
+
+</body>
+</html>
